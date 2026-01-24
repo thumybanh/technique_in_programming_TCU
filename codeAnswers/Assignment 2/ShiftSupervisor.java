@@ -1,26 +1,33 @@
 public class ShiftSupervisor extends Employee {
-    private double annualSalary;
-    private double productionBonus;
+    private double salary;
+    private double bonus;
 
-    public ShiftSupervisor(String n, String num, String d, double s, double b){
-        super(n, num, d);
-        annualSalary = s;
-        productionBonus = b;
+    public ShiftSupervisor(String n, String num, String date, double sal, double b){
+        super(n, num, date);
+        salary = sal;
+        bonus = b;
+    }
+    public ShiftSupervisor(){
+
     }
 
-    public double getProductionBonus() {
-        return productionBonus;
+    public double getBonus() {
+        return bonus;
     }
 
-    public void setProductionBonus(double productionBonus) {
-        this.productionBonus = productionBonus;
+    public void setBonus(double bonus) {
+        this.bonus = bonus;
     }
 
-    public double getAnnualSalary() {
-        return annualSalary;
+    public double getSalary() {
+        return salary;
     }
 
-    public void setAnnualSalary(double annualSalary) {
-        this.annualSalary = annualSalary;
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
+
+    public String toString(){
+        return super.toString() + "\nSalary: " + salary + "\nBonus: " + bonus;
     }
 }

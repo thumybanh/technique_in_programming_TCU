@@ -1,39 +1,49 @@
 public class Employee {
-    private String employeeName;
-    private String fullEmployeeNumber;
+    private String name;
+    private String employeeNumber;
     private String hireDate;
 
-    public Employee(String name, String e, String date){
-        employeeName = name ;
-        hireDate = date;
+    public Employee(String n, String num, String date){
+        name = n ;
 
-        if(isValidEmpNum(e)){
-            fullEmployeeNumber = e;
+        if(isValidEmpHiredDate(date)){
+            hireDate = date;
+        } else{
+            hireDate = "Invalid date";
+        }
+
+
+        if(isValidEmpNum(num)){
+            employeeNumber = num;
         } else {
-            fullEmployeeNumber = "Unvalid number";
+            employeeNumber = "Unvalid number";
         }
     }
 
-    public void setEmployeeName(String n){
-        employeeName = n;
+    public Employee(){
+
     }
 
-    public void setHireDate(String d){
-        hireDate = d;
+    public void setName(String n){
+        name = n;
     }
 
-    public void setFullEmployeeNumber(String e){
+    public void setHireDate(String h){
+        hireDate = h;
+    }
+
+    public void setEmployeeNumber(String e){
         if (isValidEmpNum(e)) {
-            fullEmployeeNumber = e;
+            employeeNumber = e;
         }
     }
 
-    public String getEmployeeName(){
-        return employeeName;
+    public String getName(){
+        return name;
     }
 
-    public String getFullEmployeeNumber(){
-        return fullEmployeeNumber;
+    public String getEmployeeNumber(){
+        return employeeNumber;
     }
 
     public String getHireDate(){
@@ -54,6 +64,31 @@ public class Employee {
                 status = false;
         }
         return status;
+    }
+
+
+    private boolean isValidEmpHiredDate(String d) {
+        boolean statusDate = true;
+
+        if (d.length() != 10)
+            statusDate = false;
+        else {
+            if ((!Character.isDigit(d.charAt(0))) ||
+                    (!Character.isDigit(d.charAt(1))) ||
+                    (d.charAt(2) != '/') ||
+                    (!Character.isDigit(d.charAt(3))) ||
+                    (!Character.isDigit(d.charAt(4))) ||
+                    (d.charAt(5) != '/') ||
+                    (!Character.isDigit(d.charAt(6))) || (!Character.isDigit(d.charAt(7))) || (!Character.isDigit(d.charAt(8))) || !Character.isDigit(d.charAt(9)))
+                statusDate = false;
+        }
+        return statusDate;
+    }
+
+
+    public String toString(){
+        String employee = "Name: " + name + "\nEmployee Number: " + employeeNumber + "\nHired Date: " + hireDate;
+        return employee;
     }
 }
 

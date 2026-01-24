@@ -1,45 +1,53 @@
 public class TeamLeader extends ProductionWorker{
     private double monthlyBonus;
-    private int trainingHours;
-    private int attendedHours;
+    private double requiredTrainingHours;
+    public double trainingHoursAttended;
 
-    public TeamLeader(String n, String num, String d, int s, double r, double b, int t, int h){
-        super(n, num, d, s, r);
+    public TeamLeader(String n, String num, String date, int sh, double rate, double mb, double rth, double tha){
+        super(n, num, date, sh, rate);
 
-        if(t > 0){
-            trainingHours = t;
+        if( rth > 0){
+            requiredTrainingHours = rth;
         }
-        if(h <= trainingHours){
-            attendedHours = h;
+        if(tha >= 0){
+            trainingHoursAttended = tha;
         }
+        if(mb >= 0) {
+            monthlyBonus = mb;
+        }
+    }
+
+    public TeamLeader(){
+
+    }
+
+    public void setMonthlyBonus(double b){
         if(b >= 0) {
             monthlyBonus = b;
         }
     }
-
-    public void setBonus(double b){
-        if(b >= 0) {
-            monthlyBonus = b;
+    public void setRequiredTrainingHours(double p){
+        if(p > 0){
+            requiredTrainingHours = p;
         }
     }
-    public void setTrainingHours(int t){
-        if(t > 0){
-            trainingHours = t;
+    public void setTrainingHoursAttended(double t){
+        if(t >= 0){
+            trainingHoursAttended = t;
         }
     }
-    public void setAttendedHours(int h){
-        if(h <= trainingHours){
-            attendedHours = h;
-        }
-    }
-    public double getBonus(){
+    public double getMonthlyBonus(){
         return monthlyBonus;
     }
-    public int getTrainingHours(){
-        return trainingHours;
+    public double getRequiredTrainingHours(){
+        return requiredTrainingHours;
     }
-    public int getAttendedHours(){
-        return attendedHours;
+    public double getTrainingHoursAttended(){
+        return trainingHoursAttended;
+    }
+
+    public String toString(){
+        return super.toString() + "\nMonthly bonus: " + monthlyBonus + "\n Required training hours: " + requiredTrainingHours + "\nAttended hours: " + trainingHoursAttended;
     }
 
 }
