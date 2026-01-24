@@ -2,8 +2,8 @@ public class ProductionWorker extends Employee {
     private int shift;
     private double hourlyPayRate;
 
-    public ProductionWorker(int s, double r){
-        super("John Cena", "013-A", "01/05/2026");
+    public ProductionWorker(String n, String num, String d, int s, double r){
+        super(n, num, d);
         hourlyPayRate = r;
         if(s <= 2 && s > 0){
             shift = s;

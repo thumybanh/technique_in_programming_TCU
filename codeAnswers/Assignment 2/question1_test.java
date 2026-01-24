@@ -14,7 +14,7 @@ public class question1_test {
         System.out.println("Hourly pay rate : ");
         double payRate = scan.nextDouble();
 
-        ProductionWorker worker = new ProductionWorker(shift, payRate);
+        ProductionWorker worker = new ProductionWorker(name, employeeNumber, hiredDate,shift,payRate);
         System.out.println(worker.getEmployeeName());
         System.out.println(worker.getFullEmployeeNumber());
         System.out.println(worker.getHireDate());
