@@ -44,8 +44,10 @@ public class ProductionWorker extends Employee {
      * @param s The shift to assign (1 for day, 2 for night)
      */
     public void setShift(int s){
-       if(s <= 2 && s > 0){
-           shift = s;
+       if(s == 1){
+           shift = DAY_SHIFT;
+       } else if (s == 2){
+           shift = NIGHT_SHIFT;
        }
     }
 
@@ -84,12 +86,6 @@ public class ProductionWorker extends Employee {
      * @return A formatted string describing the ProductionWorker
      */
     public String toString(){
-        int shiftName = 0;
-        if (shiftName == DAY_SHIFT){
-            shiftName = Integer.parseInt("Day");
-        }else if(shiftName == NIGHT_SHIFT){
-            shiftName = Integer.parseInt("Night");
-        }
-        return super.toString() + "\nShift: " + shiftName + "\nHourly pay rate: " + payRate;
+        return super.toString() + "\nShift: " + shift + "\nHourly pay rate: " + payRate;
     }
 }

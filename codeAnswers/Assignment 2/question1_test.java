@@ -12,6 +12,7 @@ public class question1_test {
         System.out.println("Please enter the hire date in MM/DD/YYYY format: ");
         String hiredDate = scan.next();
 
+        // validate the date in the format of MM/DD/YYYY
         boolean validDate = false;
         while(!validDate) {
             String month = hiredDate.substring(0, 2);
@@ -35,7 +36,7 @@ public class question1_test {
 
         ProductionWorker worker = new ProductionWorker(name, employeeNumber, hiredDate, shift, payRate);
 
-
+        // when user enter employee number then it will show its corresponded employee name, hired date, shift time, and pay rate.
         System.out.println("Search for an employee: ");
         System.out.println("Enter employee number: ");
         String searchEmployee = scan.next();
