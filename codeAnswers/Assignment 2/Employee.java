@@ -149,8 +149,7 @@ public class Employee {
      * @return A formatted string describing the employee
      */
     public String toString(){
-        String employee = "Name: " + name + "\nEmployee Number: " + employeeNumber + "\nHired Date: " + hireDate;
-        return employee;
+        return "Name: " + name + "\nEmployee Number: " + employeeNumber + "\nHired Date: " + hireDate;
     }
 }
 

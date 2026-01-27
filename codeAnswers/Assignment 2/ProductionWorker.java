@@ -1,9 +1,7 @@
 /**
- * The ProductionWorker class represents an employee who works
- * a production shift and is paid an hourly rate.
+ * The ProductionWorker class represents an employee who works a production shift and is paid an hourly rate.
  *
- * This class extends the Employee class and adds information
- * about shift type and pay rate.
+ * This class extends the Employee class and adds information about shift type and pay rate.
  */
 
 public class ProductionWorker extends Employee {

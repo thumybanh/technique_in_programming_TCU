@@ -28,7 +28,7 @@ public class TeamLeader extends ProductionWorker{
     public TeamLeader(String n, String num, String date, int sh, double rate, double mb, double rth, double tha){
         super(n, num, date, sh, rate);
 
-        if( rth > 0){
+        if(rth > 0){
             requiredTrainingHours = rth;
         }
         if(tha >= 0){
@@ -111,7 +111,7 @@ public class TeamLeader extends ProductionWorker{
      * @return A formatted string describing the TeamLeader
      */
     public String toString(){
-        return super.toString() + "\nMonthly bonus: " + monthlyBonus + "\n Required training hours: " + requiredTrainingHours + "\nAttended hours: " + trainingHoursAttended;
+        return super.toString() + "\nMonthly bonus: " + monthlyBonus + "\nRequired training hours: " + requiredTrainingHours + "\nAttended hours: " + trainingHoursAttended;
     }
 
 }

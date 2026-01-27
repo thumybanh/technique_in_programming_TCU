@@ -1,6 +1,5 @@
 /**
- * The ShiftSupervisor class represents a salaried employee
- * who earns an annual salary and may receive a bonus.
+ * The ShiftSupervisor class represents a salaried employee who earns an annual salary and may receive a bonus.
  *
  * This class extends the Employee class.
  */
