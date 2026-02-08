@@ -21,6 +21,7 @@ public class GasPrices {
         // MM-DD-YYYY:Price
 
         HashMap<String, double[]> mapYearSumCount = new HashMap<>();
+        HashMap<String, double[]> mapMonthSumCount = new HashMap<>();
 
         for (String s : priceList) {
             String date = s.substring(0, 10);
@@ -43,6 +44,19 @@ public class GasPrices {
 
             }
 
+            if(!mapMonthSumCount.containsKey(date_month)){
+                double[] sumAndCount1 = new double[2];
+                sumAndCount1[0] = 1;
+                sumAndCount1[1] = Double.parseDouble(s.substring(11));
+                mapMonthSumCount.put(date_month,sumAndCount1);
+            } else{
+                double[] updatedSumAndCount1 = mapMonthSumCount.get(date_month);
+                updatedSumAndCount1[0] += 1;
+                updatedSumAndCount1[1] += Double.parseDouble(s.substring(11));
+                mapMonthSumCount.put(date_month, updatedSumAndCount1);
+            }
+
+
         }
 
         ArrayList<String> yearArray = null;
@@ -58,6 +72,23 @@ public class GasPrices {
             double[] sc = mapYearSumCount.get(i);
             avgYear = sc[1]/sc[0];
             System.out.println(i + ": " + avgYear);
+        }
+        System.out.println("");
+
+        ArrayList<String> monthArray = new ArrayList<>(List.of());
+//        monthArray = new ArrayList<>(List.of());
+        double avgMonth = 0;
+
+        for(String k : mapMonthSumCount.keySet()){
+            monthArray.add(k);
+        }
+        Collections.sort(monthArray);
+        System.out.println("Average price for each month:");
+
+        for(String i : monthArray){
+            double[] mc = mapMonthSumCount.get(i);
+            avgMonth = mc[1]/mc[0];
+            System.out.println(i + ": " + avgMonth);
         }
 
 
