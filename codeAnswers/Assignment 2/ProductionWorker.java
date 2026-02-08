@@ -32,9 +32,12 @@ public class ProductionWorker extends Employee {
 
     /**
      * Default constructor that creates a ProductionWorker
-     * with no initial values.
      */
-    public ProductionWorker(){}
+    public ProductionWorker(){
+        super("Unknown", "0000", "No Date");
+        shift = 0;
+        payRate = 0.0;
+    }
 
     /**
      * Sets the employee's shift.

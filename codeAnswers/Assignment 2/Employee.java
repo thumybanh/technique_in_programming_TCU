@@ -39,9 +39,11 @@ public class Employee {
 
     /**
      * Default constructor that creates an Employee
-     * with no initial values.
      */
     public Employee(){
+        name = "Unknown";
+        employeeNumber = "0000";
+        hireDate = "No Date";
     }
 
     /**

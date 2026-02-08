@@ -25,9 +25,12 @@ public class ShiftSupervisor extends Employee {
     }
 
     /**
-     * Default constructor that creates a ShiftSupervisor with no initial values.
+     * Default constructor that creates a ShiftSupervisor
      */
     public ShiftSupervisor(){
+        super("Unknown", "0000", "No Date");
+        salary = 0.0;
+        bonus = 0.0;
     }
 
     /**

@@ -40,9 +40,13 @@ public class TeamLeader extends ProductionWorker{
     }
 
     /**
-     * Default constructor that creates a TeamLeader with no initial values.
+     * Default constructor that creates a TeamLeader
      */
     public TeamLeader(){
+        super("Unknown", "0000", "No date", 0, 0.0);
+        requiredTrainingHours = 0;
+        trainingHoursAttended = 0;
+        monthlyBonus = 0.0;
     }
 
     /**
@@ -113,5 +117,4 @@ public class TeamLeader extends ProductionWorker{
     public String toString(){
         return super.toString() + "\nMonthly bonus: " + monthlyBonus + "\nRequired training hours: " + requiredTrainingHours + "\nAttended hours: " + trainingHoursAttended;
     }
-
 }
