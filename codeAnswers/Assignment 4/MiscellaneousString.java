@@ -5,90 +5,78 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class MiscellaneousString {
-//    public static int WordCount(String s){
-//        String[] str = s.split(" ");
-//        int count = 0;
-//        for(String j : str){
-//            count++;
-//        }
-//        return count;
-//    }
-//    public static String arrayToString(char[] c){
-//        return String.valueOf(c).replace(" ", "")
-//                                .replace(",","");
-//    }
-    public static char mostFrequent(String s){
-//        char[] toChar = s.toCharArray();
-//        ArrayList<Character> charArr = new ArrayList<>();
-//        for(int i = 0; i < toChar.length-1 ; i++){
-//            for(int j = 0; j <= i; j++){
-//                if(toChar[j] == toChar[i]) {
-//                    charArr.add(toChar[j]);
-//                }
-//            }
-//        }
-
-//        for(int j = 0; j < charArr.size(); j++){
-//
-//        }
-
-        HashMap<Integer, Character> keyToValue = new HashMap<>();
-        char[] toArr = s.toCharArray();
-        char start = toArr[0];
-        int num = 1;
-        for(int i = 0; i < toArr.length-1; i++){
-            if (keyToValue.containsValue(start)) {
-                keyToValue.put(num+=1, toArr[i]);
-                start = toArr[i];
-            }
-            else keyToValue.put(1, toArr[i]);
-            
+    public static int WordCount(String s){
+        String[] str = s.split(" ");
+        int count = 0;
+        for(String j : str){
+            count++;
         }
-        int maxN = keyToValue.get(0);
-        for(int j : keyToValue.keySet()){
-            if(keyToValue.get(j) > maxN){
-                maxN = keyToValue.get(j);
-            }
-        }
-        return keyToValue.get(maxN);
+        return count;
     }
-//    public static String replaceSubstring(String string1, String string2, String string3){
-//        String[] strSplit = string1.split(" ");
-//        strSplit[0] = string2;
-////        return (Arrays.toString(strSplit).replace(string2, string3)).replace("[","")
-////                                                                    .replace("]","")
-////                                                                    .replace(",","");
-//        return String.join(" ", strSplit).replace(string2, string3);
-//    }
+    public static String arrayToString(char[] c){
+        return String.valueOf(c).replace(" ", "")
+                                .replace(",","");
+    }
+    public static ArrayList<Character> mostFrequent(String s) {
+        char[] toCharArr = s.toLowerCase().toCharArray();
+        int[] counter = new int[26]; //a = 0 b = 2 .... z = 25 | the current slot are all 0
+        int largestCount = 0;
+        char largestCharr = toCharArr[0]; //c
+        ArrayList<Character> frequentLetters = new ArrayList<>();
+
+        int current = 0;
+        for (int i = 0; i < toCharArr.length; i++) {
+            current = toCharArr[i] - 'a'; // 'a' is 97 in ascii, to get index from 0-26, we need to minus
+            counter[current]++;
+            if (counter[current] > largestCount) {
+                largestCount = counter[current];
+                largestCharr = toCharArr[i];
+                frequentLetters.clear();
+                frequentLetters.add(largestCharr);
+            } else if (counter[current] == largestCount && !frequentLetters.contains(toCharArr[i])) {
+                largestCount = counter[current];
+                largestCharr = toCharArr[i];
+                frequentLetters.add(largestCharr);
+            }
+        }
+        return frequentLetters;
+    }
+
+    public static String replaceSubstring(String string1, String string2, String string3){
+        String[] strSplit = string1.split(" ");
+        strSplit[0] = string2;
+        return String.join(" ", strSplit).replace(string2, string3);
+    }
+
 
     public static void main(String[] args){
         Scanner scan = new Scanner(System.in);
 
-//        System.out.println("String?");
-//        String s = scan.nextLine();
-//
-//        System.out.println(WordCount(s));
-//
-//        System.out.println("Array of character?");
-//        char[] character = scan.nextLine().toCharArray();
-//        System.out.println(arrayToString(character));
-//
-//
-//
-//
-//        System.out.println("Sentence?");
-//        String a = scan.nextLine();
-//        System.out.println("to replace the first word?");
-//        String word = scan.next();
-//
-//        String[] component = a.split(" ");
-//        String firstWord = String.valueOf(component[0]);
-//        System.out.println(replaceSubstring(a, firstWord, word));
+        System.out.println("String?");
+        String s = scan.nextLine();
+
+        System.out.println(WordCount(s));
+
+        System.out.println("Array of character?");
+        char[] character = scan.nextLine().toCharArray();
+        System.out.println(arrayToString(character));
+
+
+
+
+        System.out.println("Sentence?");
+        String a = scan.nextLine();
+        System.out.println("to replace the first word?");
+        String word = scan.next();
+
+        String[] component = a.split(" ");
+        String firstWord = String.valueOf(component[0]);
+        System.out.println(replaceSubstring(a, firstWord, word));
 
 
         System.out.println("Give me a string:");
-        String word = scan.next();
-        System.out.print(mostFrequent(word));
+        String string = scan.next();
+        System.out.print(mostFrequent(string));
 
     }
 }
