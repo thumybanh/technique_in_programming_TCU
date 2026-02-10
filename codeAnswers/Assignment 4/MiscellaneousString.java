@@ -21,7 +21,7 @@ public class MiscellaneousString {
         char[] toCharArr = s.toLowerCase().toCharArray();
         int[] counter = new int[26]; //a = 0 b = 2 .... z = 25 | the current slot are all 0
         int largestCount = 0;
-        char largestCharr = toCharArr[0]; //c
+        char largestCharr = toCharArr[0];
         ArrayList<Character> frequentLetters = new ArrayList<>();
 
         int current = 0;
@@ -31,7 +31,7 @@ public class MiscellaneousString {
             if (counter[current] > largestCount) {
                 largestCount = counter[current];
                 largestCharr = toCharArr[i];
-                frequentLetters.clear();
+                frequentLetters.clear(); // to get rid of the previous "biggest" letters to appear
                 frequentLetters.add(largestCharr);
             } else if (counter[current] == largestCount && !frequentLetters.contains(toCharArr[i])) {
                 largestCount = counter[current];
@@ -52,7 +52,7 @@ public class MiscellaneousString {
     public static void main(String[] args){
         Scanner scan = new Scanner(System.in);
 
-        System.out.println("String?");
+        System.out.println("String for word count?");
         String s = scan.nextLine();
 
         System.out.println(WordCount(s));
@@ -74,7 +74,7 @@ public class MiscellaneousString {
         System.out.println(replaceSubstring(a, firstWord, word));
 
 
-        System.out.println("Give me a string:");
+        System.out.println("Give me a string to check for the most frequent letter in the string/word:");
         String string = scan.next();
         System.out.print(mostFrequent(string));
 
