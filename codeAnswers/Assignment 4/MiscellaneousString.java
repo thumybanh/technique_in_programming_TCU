@@ -62,8 +62,6 @@ public class MiscellaneousString {
         System.out.println(arrayToString(character));
 
 
-
-
         System.out.println("Sentence?");
         String a = scan.nextLine();
         System.out.println("to replace the first word?");
